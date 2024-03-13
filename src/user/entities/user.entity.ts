@@ -3,10 +3,12 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { UserRole } from '../types/userRole.type';
+import { Question } from 'src/qustion/entities/qustion.entity';
 
 @Entity('User')
 export class User {
@@ -44,4 +46,7 @@ export class User {
   //   @Column({ type: 'set', enum: UserRole, default: ['user'] })
   @Column({ type: 'enum', default: [UserRole.USER] })
   roles: UserRole[];
+
+  @OneToMany(() => Question, (question) => question.user)
+  questions: Question[];
 }

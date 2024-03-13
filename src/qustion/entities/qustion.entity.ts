@@ -3,10 +3,12 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
+import { User } from 'src/user/entities/user.entity';
 @Entity('Question')
 export class Question {
   @PrimaryGeneratedColumn({ type: 'int' })
@@ -26,4 +28,8 @@ export class Question {
 
   @DeleteDateColumn({ type: 'timestamp', nullable: true })
   deletedAt: Date;
+
+  @ManyToOne(() => User, (user) => user.userId, { cascade: true }) // 질문을 삭제했을 때 함께 삭제된다?
+  @JoinColumn()
+  user: User;
 }

@@ -44,3 +44,6 @@ createdAt은 만든 시간을 보여주고 싶어서 timestamp를 사용했는�
 
   @Column()
   updatedAt: Timestamp; // 원래 쓴 코드
+
+  @JoinColumn({ referencedColumnName: 'userId' }) referencedColumnName 참조할 컬럼 이름을 적어줌
+  userId는 pk값이므로 굳이 적어주지 않아도 괜찮음.(pk값인 userId를 사용하려고 하면 @JoinColumn()만 적어줘도 된다.)
