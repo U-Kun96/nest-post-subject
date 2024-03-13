@@ -1,0 +1,11 @@
+1. nest 프로젝트 초기화(nest new post-subject)
+
+2. 'prettier/prettier': 0, eslintrc에 추가(CR DELETE오류 방지?)
+
+3. 깃허브 레포지토리 연결
+
+4. npm run start:dev로 동작 확인
+
+5-1. nest g resource user로 파일 생성
+5-2. nest g resource qustion
+5-3. nest g resource answer
