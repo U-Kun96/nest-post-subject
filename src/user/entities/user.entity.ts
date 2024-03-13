@@ -1,6 +1,7 @@
 import {
   Column,
   CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -9,7 +10,7 @@ import { UserRole } from '../types/userRole.type';
 
 @Entity('User')
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ type: 'int' })
   userId: number;
 
   @Column({ type: 'varchar', length: 15 })
@@ -36,6 +37,9 @@ export class User {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
+
+  @DeleteDateColumn({ type: 'timestamp' })
+  deletedAt: Date;
 
   //   @Column({ type: 'set', enum: UserRole, default: ['user'] })
   @Column({ type: 'enum', default: [UserRole.USER] })
