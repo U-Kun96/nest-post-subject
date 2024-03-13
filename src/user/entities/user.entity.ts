@@ -3,7 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
-  Timestamp,
+  UpdateDateColumn,
 } from 'typeorm';
 import { UserRole } from '../types/userRole.type';
 
@@ -34,8 +34,8 @@ export class User {
   createdAt: Date;
   // Timestamp; //  === unix time stamp(인간이 보기 힘든 시간)
 
-  @Column()
-  updatedAt: Timestamp;
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt: Date;
 
   //   @Column({ type: 'set', enum: UserRole, default: ['user'] })
   @Column({ type: 'enum', default: [UserRole.USER] })
