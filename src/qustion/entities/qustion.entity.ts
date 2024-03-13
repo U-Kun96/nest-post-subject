@@ -9,6 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { User } from 'src/user/entities/user.entity';
+import { Answer } from 'src/answer/entities/answer.entity';
 @Entity('Question')
 export class Question {
   @PrimaryGeneratedColumn({ type: 'int' })
@@ -32,4 +33,8 @@ export class Question {
   @ManyToOne(() => User, (user) => user.userId, { cascade: true }) // 질문을 삭제했을 때 함께 삭제된다?
   @JoinColumn()
   user: User;
+
+  @ManyToOne(() => Answer, (answer) => answer.answerId, { cascade: true })
+  @JoinColumn()
+  answers: Answer[];
 }
