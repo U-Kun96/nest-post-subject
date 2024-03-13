@@ -31,14 +31,14 @@ export class User {
   @Column({ type: 'varchar', length: 13 })
   phoneNumber: string;
 
-  @CreateDateColumn({ type: 'timestamp' })
+  @CreateDateColumn({ type: 'timestamp', nullable: true })
   createdAt: Date;
   // Timestamp; //  === unix time stamp(인간이 보기 힘든 시간)
 
-  @UpdateDateColumn({ type: 'timestamp' })
+  @UpdateDateColumn({ type: 'timestamp', nullable: true })
   updatedAt: Date;
 
-  @DeleteDateColumn({ type: 'timestamp' })
+  @DeleteDateColumn({ type: 'timestamp', nullable: true })
   deletedAt: Date;
 
   //   @Column({ type: 'set', enum: UserRole, default: ['user'] })
